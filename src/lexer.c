@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:28 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/23 13:30:30 by dtran         ########   odam.nl         */
+/*   Updated: 2022/09/24 12:27:56 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	ft_snorlexer(char *input)
 		i++;
 		len = 0;
 	}
-	post_processing(input, head);
 	print_list(head);
 }
 

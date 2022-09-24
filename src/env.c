@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:15 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/23 13:30:16 by dtran         ########   odam.nl         */
+/*   Updated: 2022/09/24 12:10:06 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	parse_env(char *envp[])
 {
-	t_env	*head;
 	t_env	*type;
 	int		i;
 	char	**split_envp;
@@ -22,7 +21,6 @@ void	parse_env(char *envp[])
 	type = ft_calloc(sizeof(t_env), 1);
 	if (!type)
 		return ;
-	head = type;
 	i = 0;
 	while (envp[i])
 	{
