@@ -6,17 +6,19 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:28 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/24 12:27:56 by dtran         ########   odam.nl         */
+/*   Updated: 2022/09/24 18:14:26 by mlvb          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-t_token_type	set_type(char *input, int pos)
+// Need to find a way to handle the malloc of substr
+// Strncmp segfaults on NULL
+t_token_type	set_type(char *input, int pos, int len)
 {
-	if (ft_strncmp(input, "<<", 2) == 0)
+	if (ft_strncmp(ft_substr(input, pos, len), "<<", 2) == 0)
 		return (HERE_DOC);
-	else if (ft_strncmp(input, ">>", 2) == 0)
+	else if (ft_strncmp(ft_substr(input, pos, len), ">>", 2) == 0)
 		return (OUTFILE_APPEND);
 	else if (input[pos] == '|')
 		return (PIPE);
@@ -100,7 +102,7 @@ void	ft_snorlexer(char *input)
 			len = check_quotes(&input[i]);
 			i++;
 		}
-		type = set_type(input, i);
+		type = set_type(input, i, len);
 		add_to_list(&head, len, i, type);
 		i += len;
 		i++;
