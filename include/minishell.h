@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:05 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/23 17:54:00 by dtran         ########   odam.nl         */
+/*   Updated: 2022/09/24 16:40:37 by mlvb          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "./libft/libft.h"
+# include <signal.h>
+# include <stdbool.h>
 
 # define MINISHELL_H
 # define SPECIAL_CHAR "$|<>\'\""
@@ -73,5 +75,10 @@ void	update_data(t_lexer *head, t_token_type old, t_token_type new);
 
 // List Functions
 void	print_list(t_lexer *head);
+
+// Signal Functions
+void	sighandler(int signum);
+int		sig_no_response(void);
+void	init_signals(void);
 
 #endif
