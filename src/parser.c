@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 17:53:17 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/24 12:17:34 by dtran         ########   odam.nl         */
+/*   Updated: 2022/09/26 23:17:53 by mlvb          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,33 @@
 
 // TODO:
 // lst_addback fixen
+
+// t_lexer	*ft_tokenlast(t_lexer *lst)
+// {
+// 	while (lst)
+// 	{
+// 		if (lst->next == NULL)
+// 			return (lst);
+// 		lst = lst -> next;
+// 	}
+// 	return (NULL);
+// }
+
+// void	ft_tokenadd_back(t_lexer **lst, t_file *new)
+// {
+// 	t_lexer	*temp;
+
+// 	if (!(*lst))
+// 	{
+// 		*lst = new;
+// 		return ;
+// 	}
+// 	if (!new)
+// 		return ;
+// 	temp = ft_tokenlast(*lst);
+// 	temp->next = new;
+// }
+
 // void	ft_redirections(char *input, t_lexer *lexer)
 // {
 // 	t_lexer	*tmp;
@@ -33,8 +60,7 @@
 // 				return ;
 // 			tmp->file = (t_file *)ft_lstnew((char *)str);
 // 			tmp->file->infile = str;
-// 			ft_lstadd_back(&lexer, tmp->file);
-// 			// printf("werk: %s\n", tmp->file->infile);
+// 			ft_tokenadd_back(&lexer, tmp->file);
 // 		}
 // 		tmp = tmp->next;
 // 	}

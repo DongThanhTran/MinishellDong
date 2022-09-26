@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:28 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/24 18:14:26 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/09/26 23:02:43 by mlvb          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,6 @@ static int	ft_wrlength(char *input)
 	return (count);
 }
 
-int	ft_pos(char *input)
-{
-	int	i;
-	int	pos;
-
-	i = 0;
-	pos = 0;
-	while (input[i])
-	{
-		i++;
-	}
-	return (pos);
-}
-
 int	add_to_list(t_lexer **head, int length, int pos, t_token_type type)
 {
 	t_lexer	*tmp;
@@ -82,7 +68,7 @@ int	add_to_list(t_lexer **head, int length, int pos, t_token_type type)
 	return (1);
 }
 
-void	ft_snorlexer(char *input)
+t_lexer	*ft_snorlexer(char *input)
 {
 	t_lexer				*head;
 	int					i;
@@ -108,7 +94,7 @@ void	ft_snorlexer(char *input)
 		i++;
 		len = 0;
 	}
-	print_list(head);
+	return (head);
 }
 
 // kut "homo tieten" en andere "din gen :)"

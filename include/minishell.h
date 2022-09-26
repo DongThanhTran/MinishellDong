@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:05 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/24 16:40:37 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/09/26 22:52:51 by mlvb          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdbool.h>
 
 # define MINISHELL_H
-# define SPECIAL_CHAR "$|<>\'\""
+# define SPECIAL_CHAR "$|<>"
 
 typedef enum e_token_type {
 	INFILE,
@@ -64,8 +64,12 @@ typedef struct s_shell
 // Envp parser for storing the keys and values of envp
 void	parse_env(char *envp[]);
 
+// Parser utils
+void	parser(char *input, t_lexer *lexer);
+void	ft_redirections(char *input, t_lexer *lexer);
+
 // Lexer Functions
-void	ft_snorlexer(char *input);
+t_lexer	*ft_snorlexer(char *input);
 int		check_quotes(char *input);
 void	post_processing(char *input, t_lexer *lexer);
 
