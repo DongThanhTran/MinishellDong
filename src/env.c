@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:15 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/24 16:39:48 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/09/28 00:21:44 by mlvb          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,20 @@ void	parse_env(char *envp[])
 			type = type->next;
 		}
 		i++;
+	}
+}
+
+
+void	env(t_env *env)
+{
+	t_env *temp;
+
+	temp = env;
+	while (temp)
+	{
+		ft_putstr(temp->key);
+		ft_putstr("=");
+		ft_putendl_fd(temp->value, 1);
+		temp = temp->next;
 	}
 }
