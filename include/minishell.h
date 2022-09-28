@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:05 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/26 22:52:51 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/09/28 16:29:09 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdbool.h>
 
 # define MINISHELL_H
-# define SPECIAL_CHAR "$|<>"
+# define SPECIAL_CHAR "$|<>\"\'"
 
 typedef enum e_token_type {
 	INFILE,
