@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:05 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/26 15:31:43 by dtran         ########   odam.nl         */
+/*   Updated: 2022/10/01 14:48:59 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,8 @@ int		check_files(char *input, t_lexer *lexer, t_infile *in, t_outfile *out);
 int		special_chars(char c);
 void	print_list(t_lexer *head);
 void	print_file_list(t_infile *in_head, t_outfile *out_head);
+
+// Signal Functions
+void	init_signals(void);
 
 #endif

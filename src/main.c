@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:43 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/25 13:33:05 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/10/01 14:47:36 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int argc, char *argv[], char *envp[])
 {
-	char	*input;
-	extern char* rl_line_buffer;
-	
+	char		*input;
+	extern char	*rl_line_buffer;
+
 	init_signals();
 	(void)argc;
 	(void)argv;

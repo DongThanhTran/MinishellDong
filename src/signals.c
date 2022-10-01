@@ -6,14 +6,14 @@
 /*   By: mlammert <mlammert@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/24 16:32:02 by mlammert      #+#    #+#                 */
-/*   Updated: 2022/09/26 16:33:27 by dtran         ########   odam.nl         */
+/*   Updated: 2022/10/01 14:48:43 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 // exit in de prompt typen moet het programma ook beeindigen
-void	sighandler(int signum)
+static void	sighandler(int signum)
 {
 	extern int	rl_done;
 	
@@ -39,7 +39,7 @@ void	sighandler(int signum)
 	// }
 }
 
-int	sig_no_response(void)
+static int	sig_no_response(void)
 {
 	return (0);
 }
