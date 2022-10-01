@@ -6,7 +6,7 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:21 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/23 13:30:23 by dtran         ########   odam.nl         */
+/*   Updated: 2022/10/01 14:42:43 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@ int	check_quotes(char *input)
 {
 	int	i;
 
+	i = 0;
 	if (input[0] == '\"')
 	{
 		i = 1;
 		while (input[i] && input[i] != '\"')
+		{
 			i++;
+		}
 	}
-	if (input[0] == '\'')
+	else if (input[0] == '\'')
 	{
 		i = 1;
 		while (input[i] && input[i] != '\'')
 			i++;
 	}
-	return (i - 1);
+	return (i);
 }

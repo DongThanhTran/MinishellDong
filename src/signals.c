@@ -6,12 +6,13 @@
 /*   By: mlammert <mlammert@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/24 16:32:02 by mlammert      #+#    #+#                 */
-/*   Updated: 2022/09/24 16:41:36 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/09/26 16:33:27 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+// exit in de prompt typen moet het programma ook beeindigen
 void	sighandler(int signum)
 {
 	extern int	rl_done;

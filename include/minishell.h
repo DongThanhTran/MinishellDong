@@ -6,21 +6,19 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:05 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/24 16:40:37 by mlvb          ########   odam.nl         */
+/*   Updated: 2022/09/26 15:31:43 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
+# define MINISHELL_H
+
+# define SPECIAL_CHAR "$|<>\"\'"
 
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "./libft/libft.h"
-# include <signal.h>
-# include <stdbool.h>
-
-# define MINISHELL_H
-# define SPECIAL_CHAR "$|<>\'\""
 
 typedef enum e_token_type {
 	INFILE,
@@ -38,19 +36,26 @@ typedef struct s_env {
 	struct s_env	*next;
 }	t_env;
 
-typedef struct s_file {
+typedef struct s_infile {
 	char			*infile;
-	char			*outfile;
-	char			*heredoc;
-	struct s_file	*next;
-}	t_file;
+	char			*heredick;
+	struct s_infile	*next;
+}	t_infile;
+
+typedef struct s_outfile
+{
+	char				*outfile;
+	char				*out_append;
+	struct s_outfile	*next;
+}	t_outfile;
 
 typedef struct s_lexer {
-	t_token_type	type;
-	int				length;
-	int				index;
-	t_file			*file;
-	struct s_lexer	*next;
+	t_token_type		type;
+	int					length;
+	int					index;
+	struct s_infile		*in;
+	struct s_outfile	*out;
+	struct s_lexer		*next;
 }	t_lexer;
 
 typedef struct s_shell
@@ -65,20 +70,16 @@ typedef struct s_shell
 void	parse_env(char *envp[]);
 
 // Lexer Functions
-void	ft_snorlexer(char *input);
+t_lexer	*ft_snorlexer(char *input);
 int		check_quotes(char *input);
-void	post_processing(char *input, t_lexer *lexer);
+
+// Parser
+void	ft_parser(char *input, t_lexer *lexer);
+int		check_files(char *input, t_lexer *lexer, t_infile *in, t_outfile *out);
 
 // Util Functions
 int		special_chars(char c);
-void	update_data(t_lexer *head, t_token_type old, t_token_type new);
-
-// List Functions
 void	print_list(t_lexer *head);
-
-// Signal Functions
-void	sighandler(int signum);
-int		sig_no_response(void);
-void	init_signals(void);
+void	print_file_list(t_infile *in_head, t_outfile *out_head);
 
 #endif

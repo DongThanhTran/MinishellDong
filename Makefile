@@ -6,7 +6,7 @@
 #    By: dtran <dtran@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/31 18:10:25 by dtran         #+#    #+#                  #
-#    Updated: 2022/09/24 16:39:41 by mlvb          ########   odam.nl          #
+#    Updated: 2022/10/01 14:44:49 by dtran         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ HEADERS		= -I $(LIBFT) -I $(MINISHELL)
 #===============================================================================: Sourcefiles
 SRCS		= $(addprefix src/, $(addsuffix .c, \
 				env \
+				files \
 				lexer \
 				check \
 				signals \

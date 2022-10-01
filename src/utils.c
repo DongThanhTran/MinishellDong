@@ -6,36 +6,13 @@
 /*   By: dtran <dtran@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/23 13:30:37 by dtran         #+#    #+#                 */
-/*   Updated: 2022/09/23 14:41:11 by dtran         ########   odam.nl         */
+/*   Updated: 2022/09/26 17:25:18 by dtran         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-// waarschijnlijk is deze functie niet nodig.
-void	update_data(t_lexer *head, t_token_type old, t_token_type new)
-{
-	t_lexer	*lexer;
-
-	if (head == NULL)
-	{
-		printf("Linked List not initialized\n");
-		return ;
-	}
-	lexer = head;
-	while (lexer != NULL)
-	{
-		if (lexer->type == old)
-		{
-			lexer->type = new;
-			// printf("old found: %d changed to new %d\n", old, new);
-			return ;
-		}
-		lexer = lexer->next;
-	}
-	printf("%d does not exist in the list\n", old);
-}
-
+// deze functie kan er bij het inleveren van het project eruit
 void	print_list(t_lexer *head)
 {
 	while (head != NULL)
@@ -43,6 +20,21 @@ void	print_list(t_lexer *head)
 		printf("index: %d\t lenght: %d\t type: %d\n", head->index, \
 				head->length, head->type);
 		head = head->next;
+	}
+}
+
+// deze functie kan er bij het inleveren van het project eruit
+void	print_file_list(t_infile *in_head, t_outfile *out_head)
+{
+	while (in_head != NULL)
+	{
+		printf("the infile: %s\n", in_head->infile);
+		in_head = in_head->next;
+	}
+	while (out_head)
+	{
+		printf("the outfile: %s\n", out_head->outfile);
+		out_head = out_head->next;
 	}
 }
 
